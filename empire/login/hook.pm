@@ -3,18 +3,18 @@ modify_resource(sub {
 });
 
 
-our $logged;
-our $session_id;
 
 if ( -f '/tmp/session.id' ) {
 
-    $logged = 1;
+    our $logged = 1;
     set_response('already logged in');
     open F, '/tmp/session.id';
     our $session_id = <F>;
     close;
 
 }else{
+
+    our $logged = 0;
 
     my $login = login();
     my $password = password();
@@ -40,7 +40,7 @@ sub login_generator {
     }else{                                              
         push @list, "200 OK";                          
         push @list, 'regexp: "session_id":"(\S+?)"';                     
-        push @list, 'code: open F, "> /tmp/session.id" or die $!; print F capture()->[0]; close F;';     
+        push @list, 'code: open F, "> /tmp/session.id" or die $!; print F capture()->[0]; close F; our $session_id = capture()->[0];';     
     }
 
     [@list]
