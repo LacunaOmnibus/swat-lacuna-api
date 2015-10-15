@@ -1,0 +1,15 @@
+200 OK
+Content-Type: application/json-rpc
+begin:
+[
+ {
+  "name" : "US1",
+  "uri" : "https://us1.lacunaexpanse.com/",
+  "status" : "Open",
+  "location" : "Texas, United States",
+  "type" : "Empire Server",
+  regexp: "description" : ".*"
+ }
+]
+end:
+
