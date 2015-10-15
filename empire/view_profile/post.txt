@@ -1,0 +1,3 @@
+200 OK
+"result":{"profile"
+generator: [ "\"name\":\"".(login())."\"" ] 
